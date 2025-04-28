@@ -1,9 +1,5 @@
 package senai.jandira.atividade.model;
 
-/**
- * Classe responsável por armazenar a temperatura em graus Celsius
- * e converter para Fahrenheit ou Kelvin.
- */
 public class Temperatura {
 
     private double celsius;
@@ -20,17 +16,17 @@ public class Temperatura {
         this.celsius = celsius;
     }
 
-    /**
-     * Converte de Celsius para Fahrenheit.
-     * Fórmula: (°C × 9/5) + 32
+     /**
+     Converte de Celsius para Fahrenheit.
+     Fórmula: (°C × 9/5) + 32
      */
     public double toFahrenheit() {
         return (celsius * 9.0 / 5.0) + 32.0;
     }
 
-    /**
-     * Converte de Celsius para Kelvin.
-     * Fórmula: °C + 273.15
+     /**
+     Converte de Celsius para Kelvin.
+     Fórmula: °C + 273.15
      */
     public double toKelvin() {
         return celsius + 273.15;

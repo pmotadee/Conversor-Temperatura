@@ -7,10 +7,6 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-/**
- * Classe que representa a interface gráfica para converter
- * o valor de temperatura de Celsius para Fahrenheit ou Kelvin.
- */
 public class TelaConversor extends JFrame {
 
     private JLabel labelCelsius;
@@ -24,40 +20,44 @@ public class TelaConversor extends JFrame {
         super("Conversor de Temperatura");
 
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setSize(400, 200);
+        setSize(400, 250);
         setLocationRelativeTo(null);
-        setLayout(null);  // Layout nulo para posicionar os componentes manualmente
+        setLayout(null);
 
-        // Label: "Temperatura em graus celsius"
-        labelCelsius = new JLabel("Temperatura em graus celsius:");
-        labelCelsius.setBounds(20, 20, 200, 25);
+        // Label Celsius (mais à esquerda)
+        labelCelsius = new JLabel("Temperatura em Celsius:");
+        labelCelsius.setBounds(20, 30, 200, 25);
         add(labelCelsius);
 
-        // Campo de texto
+        // Campo de texto (ao lado do label)
         textCelsius = new JTextField();
-        textCelsius.setBounds(220, 20, 50, 25);
+        textCelsius.setBounds(230, 30, 120, 25); // Mais à direita, alinhado
         add(textCelsius);
 
-        // Botão Fahrenheit
+        // Botão Fahrenheit (centralizado embaixo)
         btnFahrenheit = new JButton("FAHRENHEIT");
-        btnFahrenheit.setBounds(20, 60, 120, 30);
+        btnFahrenheit.setBounds(50, 80, 130, 40);
+        btnFahrenheit.setBackground(new Color(70,130,180)); // azul
+        btnFahrenheit.setForeground(Color.WHITE);
         add(btnFahrenheit);
 
-        // Botão Kelvin
+        // Botão Kelvin (ao lado do Fahrenheit)
         btnKelvin = new JButton("KELVIN");
-        btnKelvin.setBounds(150, 60, 80, 30);
+        btnKelvin.setBounds(220, 80, 130, 40);
+        btnKelvin.setBackground(new Color(34,139,34)); // verde
+        btnKelvin.setForeground(Color.WHITE);
         add(btnKelvin);
 
-        // Label de resultado (exibirá algo como "78,80 FAHRENHEIT")
-        labelResultado = new JLabel("");
+        // Label Resultado (centralizado)
+        labelResultado = new JLabel("", SwingConstants.CENTER);
         labelResultado.setFont(new Font("Arial", Font.BOLD, 16));
-        labelResultado.setBounds(20, 110, 300, 25);
+        labelResultado.setBounds(50, 140, 300, 25);
         add(labelResultado);
 
-        // Label de erro (vermelho)
-        labelErro = new JLabel("");
+        // Label Erro (centralizado e embaixo do resultado)
+        labelErro = new JLabel("", SwingConstants.CENTER);
         labelErro.setForeground(Color.RED);
-        labelErro.setBounds(20, 140, 350, 25);
+        labelErro.setBounds(50, 170, 300, 25);
         add(labelErro);
 
         // Ações dos botões
@@ -76,8 +76,8 @@ public class TelaConversor extends JFrame {
         });
     }
 
-    /**
-     * Converte para Fahrenheit
+    /*
+     Converte para Fahrenheit
      */
     private void converterParaFahrenheit() {
         String texto = textCelsius.getText().trim();
@@ -94,8 +94,8 @@ public class TelaConversor extends JFrame {
         }
     }
 
-    /**
-     * Converte para Kelvin
+    /*
+     Converte para Kelvin
      */
     private void converterParaKelvin() {
         String texto = textCelsius.getText().trim();
